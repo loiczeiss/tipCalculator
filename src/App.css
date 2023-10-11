@@ -1,0 +1,100 @@
+.whole {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(185, 41%, 84%);
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Space Mono', monospace
+}
+
+.splitterTitle{
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  margin-top: 0;
+  font-size: 20px;
+  letter-spacing: 10px;
+  padding: 40px;
+}
+
+article {
+  background-color: hsl(0, 0%, 100%);
+  flex: 1;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.InSection{
+  margin: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+p{
+  margin: 0%
+}
+
+.billTxt{
+  font-size: 14px;
+  color: hsl(186, 14%, 43%);
+}
+.bill{
+  display: flex;
+  justify-content: space-between;
+  background-color:hsl(189, 41%, 97%) ;
+  margin-top:5px;
+  padding: 5px;
+}
+input{
+  border:none;
+  outline:none;
+  background-color: transparent;
+  text-align: end;
+  margin-right: 10px;
+  font-family: 'Space Mono', monospace
+}
+
+input::placeholder {
+  color: hsl(184, 14%, 56%) /* Change this to the desired color value */
+}
+
+#dollarSign{
+scale: 66%;
+margin-left: 10px;
+}
+
+.tip{
+  margin-top: 20px;
+}
+
+.tipTxt{
+  font-size: 14px;
+  color: hsl(186, 14%, 43%);
+}
+
+.tipsSelection{
+  display: flex;
+  flex-direction: ;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  width: 160px; /* Set your desired width */
+  height: 50px; /* Set your desired height */
+  background-color:hsl(183, 100%, 15%); /* Set your desired background color */
+ /* Set your desired margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  margin-top: 10px;
+  border-radius: 6px;
+}
