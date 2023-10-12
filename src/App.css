@@ -1,17 +1,22 @@
+body {
+  width: 100vw;
+ 
+  overflow-x: hidden;
+}
+
 .whole {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: hsl(185, 41%, 84%);
+  min-height: 100vh; /* Set minimum height to fill the entire viewport */
   width: 100vw;
-  height: 100vh;
-  font-family: 'Space Mono', monospace
+  font-family: "Space Mono", monospace;
 }
 
-.splitterTitle{
+.splitterTitle {
   text-align: center;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   margin-top: 0;
   font-size: 20px;
   letter-spacing: 10px;
@@ -23,58 +28,63 @@ article {
   flex: 1;
   width: 100%;
   border-radius: 20px;
-}
-
-.InSection{
-  margin: 20px;
-
   display: flex;
   flex-direction: column;
 }
 
-p{
-  margin: 0%
+.InSection {
+  margin: 30px;
+
+  display: flex;
+  flex-direction: column;
+  flex: 0.7; /* 70% of the article height */
+  justify-content: space-between;
 }
 
-.billTxt{
+p {
+  margin: 0%;
+}
+
+.billTxt {
   font-size: 14px;
   color: hsl(186, 14%, 43%);
+  margin-bottom: 10px;
 }
-.bill{
+.bill {
   display: flex;
   justify-content: space-between;
-  background-color:hsl(189, 41%, 97%) ;
-  margin-top:5px;
-  padding: 5px;
+  background-color: hsl(189, 41%, 97%);
+  margin-top: 10px;
+  padding: 10px;
 }
-input{
-  border:none;
-  outline:none;
+input {
+  border: none;
+  outline: none;
   background-color: transparent;
   text-align: end;
   margin-right: 10px;
-  font-family: 'Space Mono', monospace
+  font-family: "Space Mono", monospace;
 }
 
 input::placeholder {
-  color: hsl(184, 14%, 56%) /* Change this to the desired color value */
+  color: hsl(184, 14%, 56%) /* Change this to the desired color value */;
+  font-size: 20px;
 }
 
-#dollarSign{
-scale: 66%;
-margin-left: 10px;
+#dollarSign {
+  margin-left: 10px;
 }
 
-.tip{
-  margin-top: 20px;
+.tip {
+  margin-top: 30px;
 }
 
-.tipTxt{
+.tipTxt {
   font-size: 14px;
   color: hsl(186, 14%, 43%);
 }
 
-.tipsSelection{
+.tipsSelection {
   display: flex;
   flex-direction: ;
 }
@@ -83,13 +93,14 @@ margin-left: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .item {
-  width: 160px; /* Set your desired width */
+  width: 150px; /* Set your desired width */
   height: 50px; /* Set your desired height */
-  background-color:hsl(183, 100%, 15%); /* Set your desired background color */
- /* Set your desired margin */
+  background-color: hsl(183, 100%, 15%); /* Set your desired background color */
+  /* Set your desired margin */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,4 +108,77 @@ margin-left: 10px;
   color: white;
   margin-top: 10px;
   border-radius: 6px;
+}
+
+.item:hover{
+  background-color: hsl(172, 67%, 45%);
+  color:hsl(183, 100%, 15%) ;
+}
+
+#itemCustom input::placeholder {
+  color: hsl(186, 14%, 43%);
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.peopleNumber {
+  margin-top: 30px;
+}
+
+.person {
+  display: flex;
+  justify-content: space-between;
+  background-color: hsl(189, 41%, 97%);
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#personSign {
+  margin-left: 10px;
+}
+
+.calculWindow {
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 20px;
+  flex: 0.3; /* 30% of the article height */
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.tipWindows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+button {
+  color: hsl(183, 100%, 15%);
+}
+
+@media (min-width: 1024px) {
+  article {
+    flex-direction: row;
+    width: calc(100% - 400px); /* Set the width based on your design */
+    margin: 20px; /* Set the margin based on your design */;
+    margin-bottom: 100px;
+  }
+  .tipWindows {
+    margin-top: 20px;
+  }
+  .splitterTitle{
+    margin-top: 30px;
+    padding-bottom: 0px;
+  }
+
+}
+
+@media (min-width: 1400px) {
+  .item {
+    width: 200px;
+  }
 }
