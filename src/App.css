@@ -21,6 +21,7 @@ body {
   font-size: 20px;
   letter-spacing: 10px;
   padding: 40px;
+  color: hsl(186, 14%, 43%);
 }
 
 article {
@@ -56,6 +57,7 @@ p {
   background-color: hsl(189, 41%, 97%);
   margin-top: 10px;
   padding: 10px;
+  border-radius: 6px;
 }
 input {
   border: none;
@@ -64,11 +66,13 @@ input {
   text-align: end;
   margin-right: 10px;
   font-family: "Space Mono", monospace;
+  color:hsl(183, 100%, 15%);
+  font-size: 15px;
 }
 
 input::placeholder {
   color: hsl(184, 14%, 56%) /* Change this to the desired color value */;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 #dollarSign {
@@ -118,7 +122,11 @@ input::placeholder {
 #itemCustom input::placeholder {
   color: hsl(186, 14%, 43%);
   font-size: 20px;
-  margin-right: 10px;
+
+}
+
+#itemCustom input{
+  margin-right: 80px;
 }
 
 .peopleNumber {
@@ -131,6 +139,7 @@ input::placeholder {
   background-color: hsl(189, 41%, 97%);
   margin-top: 10px;
   padding: 10px;
+  border-radius: 6px;
 }
 
 #personSign {
@@ -158,12 +167,26 @@ input::placeholder {
 
 button {
   color: hsl(183, 100%, 15%);
+  background-color: hsl(172, 67%, 45%);
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  padding: 5px;
+  border: 0px
+}
+
+#reset{
+  font-family:  "Space Mono", monospace ;
+  color: hsl(183, 100%, 15%);
+  margin: 5px;
+  font-size: 16px;
+  
 }
 
 @media (min-width: 1024px) {
   article {
     flex-direction: row;
-    width: calc(100% - 400px); /* Set the width based on your design */
+    width: calc(100% - 500px); /* Set the width based on your design */
     margin: 20px; /* Set the margin based on your design */;
     margin-bottom: 100px;
   }
@@ -171,7 +194,8 @@ button {
     margin-top: 20px;
   }
   .splitterTitle{
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding-bottom: 0px;
   }
 
