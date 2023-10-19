@@ -11,6 +11,7 @@ function App() {
   const [tipPourcent, setTipPourcent] = useState(0);
   const [tipAmount, setTipAmount] = useState("$0.00");
   const [tipTotal, setTipTotal] = useState("$0.00");
+  const [errorMsg, setErrorMsg] = useState("")
 
   const [divStyle, setDivStyle] = useState({
     backgroundColor: "hsl(189, 41%, 97%)",
@@ -42,32 +43,52 @@ function App() {
   const billPeopleClicked = () => {
     inputPeopleRef.current.focus();
     setPeopleStyle({ border: "2px solid hsl(172, 67%, 45%) " });
+    setErrorMsg("")
   };
 
-  const calcTip = () =>{
-      const tipTotal = (billAmount * tipPourcent )
-      const tipDivided = tipTotal / peopleAmount
-      setTipTotal("$" + tipTotal.toFixed(2)); // Fixed to 2 decimal places
-      setTipAmount("$" + tipDivided.toFixed(2)); // Fixed to 2 decimal places
-      console.log("wtf")
+  const calcTip = () => {
+    const tipTotal = billAmount * tipPourcent;
+    const tipDivided = tipTotal / peopleAmount;
+
+    if (billAmount == 0 && peopleAmount == 0){
+      setBillStyle({ border: "2px solid red"})
+      setPeopleStyle({border : "2px solid red"})
+    } else if (billAmount!==0 && peopleAmount == 0){
+      setPeopleStyle({border : "2px solid red"})
+      setErrorMsg("Can't be zero")
+    }  else if (billAmount==0 && peopleAmount !== 0){
+      setBillStyle({border : "2px solid red"})
+    }  else{setTipTotal("$" + tipTotal.toFixed(2)); // Fixed to 2 decimal places
+    setTipAmount("$" + tipDivided.toFixed(2)); // Fixed to 2 decimal places
   }
-  console.log(tipAmount)
+    
+  };
+
 
   const onEnter = (e) => {
-    if (e.code === "Enter"){
-      calcTip()
+    if (e.code === "Enter") {
+      calcTip();
     }
-  }
-
+  };
 
   useEffect(() => {
     if (tipPourcent !== 0) {
       calcTip();
     }
   }, [tipPourcent]);
-  
 
-  // ... (rest of the code remains unchanged)
+const resetAllValues = () => {
+  setBillAmount(0);
+  setPeopleAmount(0);
+  setTipPourcent(0);
+  setTipAmount("$0.00");
+  setTipTotal("$0.00");
+  inputBillRef.current.value = "";
+  inputPeopleRef.current.value = "";
+  setErrorMsg("")
+  setBillStyle({})
+  setPeopleStyle({})
+}
 
   return (
     <>
@@ -93,24 +114,54 @@ function App() {
             <div className="tip">
               <p className="tipTxt">Select Tip %</p>
               <div className="flex-container">
-                <div className="item" onClick={() => { setTipPourcent(0.05); calcTip(); }}>
+                <div
+                  className="item"
+                  onClick={() => {
+                    setTipPourcent(0.05);
+                    calcTip();
+                  }}
+                >
                   5%
                 </div>
-                <div className="item" onClick={() => {setTipPourcent(0.10); calcTip();}}>
+                <div
+                  className="item"
+                  onClick={() => {
+                    setTipPourcent(0.1);
+                    calcTip();
+                  }}
+                >
                   10%
                 </div>
-                <div className="item" onClick={() => {setTipPourcent(0.15); calcTip();}}>
+                <div
+                  className="item"
+                  onClick={() => {
+                    setTipPourcent(0.15);
+                    calcTip();
+                  }}
+                >
                   15%
                 </div>
-                <div className="item" onClick={() => {setTipPourcent(0.25); calcTip();}}>
+                <div
+                  className="item"
+                  onClick={() => {
+                    setTipPourcent(0.25);
+                    calcTip();
+                  }}
+                >
                   25%
                 </div>
-                <div className="item" onClick={() => {setTipPourcent(0.50); calcTip();}}>
+                <div
+                  className="item"
+                  onClick={() => {
+                    setTipPourcent(0.5);
+                    calcTip();
+                  }}
+                >
                   50%
                 </div>
                 <div className="item" id="itemCustom" style={divStyle}>
                   <input
-                  maxLength={2}
+                    maxLength={2}
                     type="text"
                     placeholder="Custom"
                     onFocus={InputClicked}
@@ -120,7 +171,7 @@ function App() {
                         setTipPourcent(inputValue / 100);
                       } else {
                         setTipPourcent(0);
-                      } 
+                      }
                     }}
                     onKeyDown={onEnter}
                   />
@@ -128,9 +179,10 @@ function App() {
               </div>
             </div>
 
-            <p style={{ color: "hsl(186, 14%, 43%)", marginTop: "30px" }}>
+            <div className="peopleTxts"><p style={{ color: "hsl(186, 14%, 43%)" }}>
               Number of People
             </p>
+            <p style={{ color: "red", fontSize: "12px", alignSelf: "center" }}>{errorMsg}</p></div>
             <div
               className="person"
               onClick={billPeopleClicked}
@@ -170,8 +222,7 @@ function App() {
                 </p>
               </div>
             </div>
-            <button
-            onClick={calcTip}>
+            <button onClick={resetAllValues}>
               <p id="reset">RESET</p>
             </button>
           </section>
