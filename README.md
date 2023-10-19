@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./Capture.jpg)
+![screenshot](https://github.com/loiczeiss/tipCalculator/assets/104260545/d867b07b-898b-4b72-9df4-ba54b1cc326b)
 
 
 
